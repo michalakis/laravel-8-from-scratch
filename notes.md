@@ -1,5 +1,5 @@
 <h1 style="color:#EF3B2D; text-align: center; margin-bottom: 50px;">    
-    LARAVEL 8 FROM SCRATCH
+    LARAVEL <span style="color:white;">8</span> FROM SCRATCH
 </h1>
 
 - ### Section 1 – Prerequisites and Setup
@@ -129,7 +129,7 @@
 
 - ### SECITON 3 – BLADE 
 
-    - ### 14 Blade: The Absolute Basics 
+    - ### 14 - Blade: The Absolute Basics 
     
         - `Blade` is `Laravel's` templating engine and it is used in the views
         - `Blade` files end in `.blade.php`
@@ -141,15 +141,23 @@
         - `{!! $post->body !!}` does not escape the data, in case we want it to be treated as html
         - `@foreach () @endforeach` is called a `Blade` directive
         - `{{ dd() }}` and `@dd()` are the same, the latter is another `Blade` directive
-        - `Laravel` adds a `$loop` variable to `foreach` directives, it contains information about the loop which are accessible from within the loop
+        - `Laravel` adds a `$loop` variable to `foreach` directives, it contains information about the loop which are accessible from within the foreach statement
         - `@if @endif` 
         - `@unless @endunless`
 
-    15 Blade Layouts Two Ways 
+    - ### 15 - Blade Layouts Two Ways 
+    
+        - `@yield()`
+        - `@extends()`
+        - `@section() @endsection`
+        - `Blade Components` are a different way to create layout files
+        - A `Blade Component` allows us to wrap a piece of html 
+        - You add components in a component's directory, which itself resides inside the `view` directory
+        - `<x-layout>`, `{{ $slot }}`, `{{ $attributes }}`, `$slot` and `$attributes` are the default
 
-    16 A few Tweaks and Consideration 
+    - ### 16 -  few Tweaks and Consideration 
 
-    SECTION 4 – WORKING WITH DATABSES 
+    SECTION 4 – WORKING WITH DATABASES 
 
     17 – Environment Flies and Database Connections 
 

@@ -44,7 +44,7 @@
 
         - Tools help us solve a problem we are having 
   
-- ### SECTION 2 – THE BASICS  
+- ### Section 2 – The Basics 
 
     - ### Episode 05 – How a Route Loads a View 
 
@@ -62,12 +62,12 @@
         - CSS and JavaScript files are compiled by a bundler and places in the resourced folder 
         - Alternatively, you can place your assets in the `public` directory and reference them directly
 
-    - ### 07 – Make a Route and Link to it 
+    - ### Episode 07 – Make a Route and Link to it 
 
         - All routes are stored in the `routes/web.php` folder
         - If a route returns a view that doesn't exist, laravel will throw an exception 
 
-    - ### 08 – Store Blog Posts as HTML Files 
+    - ### Episode 08 – Store Blog Posts as HTML Files 
 
         - You can pass variables to the view, by passing a set of value key pairs as the second argument of the view function
         - Each item in the array will be extracted as its own variable
@@ -117,6 +117,8 @@
         - `collection->map()` is  the equivalent of `array_map()`
         - `Ctrl + Alt + N` inline’s  a variable in `PHPStorm`
         - `Alt + Enter` converts a closure into an arrow function 
+        - **TODO:** Why does `YamlFrontMatter::parseFile($file)` work even when the argument passed in is an object, not a string?
+        - **TODO:** `document->body()` function is used without prior mention or explanation
 
     - ### Episode 13 – Collection Sorting and Caching Refresher 
     
@@ -127,9 +129,9 @@
         - `cash()->put('foo','bar')` and `cache(['foo' => 'buzz'])` are the same
         - You can add the time before expiration as the second argument to the cache function e.g., `cache(['foo','buzz], now()->addSeconds(3));`
 
-- ### SECITON 3 – BLADE 
+- ### Section 3 – Blade 
 
-    - ### 14 - Blade: The Absolute Basics 
+    - ### Episode 14 - Blade: The Absolute Basics 
     
         - `Blade` is `Laravel's` templating engine and it is used in the views
         - `Blade` files end in `.blade.php`
@@ -145,7 +147,7 @@
         - `@if @endif` 
         - `@unless @endunless`
 
-    - ### 15 - Blade Layouts Two Ways 
+    - ### Episode 15 - Blade Layouts Two Ways 
     
         - `@yield()`
         - `@extends()`
@@ -155,54 +157,71 @@
         - You add components in a component's directory, which itself resides inside the `view` directory
         - `<x-layout>`, `{{ $slot }}`, `{{ $attributes }}`, `$slot` and `$attributes` are the default
 
-    - ### 16 -  few Tweaks and Consideration 
+    - ### Episode 16 - A few Tweaks and Consideration 
+    
+        - **TODO:** Does ModelNotFoundException() show an error page, or a 404 page?
+        - Tip: have both a find() method, and a findOrFail() method
+  
+- ### Section 4 – Working With Databases
 
-    SECTION 4 – WORKING WITH DATABASES 
+    - ### Episode 17 – Environment Flies and Database Connections 
+    
+        - Every application requires a certain level of environment specific configuration e.g., database name, access ids and tokens
+        - The files containing these configurations are not committed to version control, and the application does not reference the values explicitly, but rather references the keys that point to the values
+        - `mysql -u root -p`
+        - `create database foobar;`
+        - `CTRL D` to exit the mysql cli
+        - `php artisan migrate`
+        - `use foobar;`
+        - `show tables;`
 
-    17 – Environment Flies and Database Connections 
+    - ### Episode 18 – Migrations: The Absolute Basics 
+        - `php artisan migrate`
+        - `php artisan migrate:rollback`
+        - `php aritsan migrate:fresh`, this command will give a warning if app environment is in production
+        - `Table Plus` lets you copy a row as an import statement
+        - `Eloquent` maps a database table row to a model
 
-    18 – Migrations: The Absolute Basics 
+    - ### Episode 19 – Eloquent and the Active Record Pattern 
 
-    19 – Eloquent and the Active Record Pattern 
+    - ### Episode 20 – Make a Post Model and Migration 
 
-    20 – Make a Post Model and Migration 
+    - ### Episode 21 – Updates and HTML Escaping 
+      
+    - ### Episode 22 – 3 Ways to Mitigate Mass Assignment Vulnerabilities
+    
+    - ### Episode 23 – Route Model Binging
 
-    21 – Updates and HTML Escaping 
+    - ### Episode 24 – Your first eloquent Relationship 
 
-    22 – 3 Ways to Mitigate Mass Assignment Vulnerabilities 
+    - ### Episode 25 – Show All Posts Associated with a Category 
 
-    23 – Route Model Binging 
+    - ### Episode 26 – Clockwork, and the N+1 problem 
 
-    24 – Your first eloquent Relationship 
+    - ### Episode 27 – Database Seeding Saves Time 
 
-    25 – Show All Posts Associated with a Category 
+    - ### Episode 28 – Turbo Boost with Factories 
 
-    26 – Clockwork, and the N+1 problem 
+    - ### Episode 29 – View All Posts by an Author 
 
-    27 – Database Seeding Saves Time 
+    - ### Episode 30 – Eager Load Relationships on an Existing Model 
 
-    28 – Turbo Boost with Factories 
+- ### Section 5 – Integrate the Design
 
-    29 – View All Posts by an Author 
+    - ### Episode 31 – Integrate the Design 
 
-    30 – Eager Load Relationships on an Existing Model 
+    - ### Episode 32 – Blade Components and CSS Grids 
 
-    SECTION 5 – INTEGRATE THE DESIGN 
+    - ### Episode 33 – Convert the Blog Post Page 
 
-    31 – Integrate the Design 
+    - ### Episode 34 – A Small JavaScript Dropdown Detour 
 
-    32 – Blade Components and CSS Grids 
+    - ### Episode 35 – How to Extract a Dropdown Blad Component 
 
-    33 – Convert the Blog Post Page 
+    - ### Episode 36 – Quick Tweaks and Clean-Up 
 
-    34 – A Small JavaScript Dropdown Detour 
+- ### Section 6 – Search
+      
+    - ### Episode 37 – Search (The Messy Way) 
 
-    35 – How to Extract a Dropdown Blad Component 
-
-    36 – Quick Tweaks and Clean-Up 
-
-    SECTION 6 – SEARCH 
-
-    37 – Search (The Messy Way) 
-
-    38 – Search (The Cleaner Way) 
+    - ### Episode 38 – Search (The Cleaner Way) 

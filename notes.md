@@ -130,6 +130,20 @@
 - ### SECITON 3 – BLADE 
 
     - ### 14 Blade: The Absolute Basics 
+    
+        - `Blade` is `Laravel's` templating engine and it is used in the views
+        - `Blade` files end in `.blade.php`
+        - If `Blade` syntax is included in the views, `Laravel` will compile it down to vanilla `PHP`
+        - `<?= 'foobar' ?>` is shorthand for the `PHP` `echo` function
+        - `<?= $post->title ?>` `<?php echo $post->title ?>` and `{{ $post->title; }}` are exactly the same
+        - Compiled `Blade` files can be found in `/storage/framework/views`
+        - `e()` is a Laravel function for encoding
+        - `{!! $post->body !!}` does not escape the data, in case we want it to be treated as html
+        - `@foreach () @endforeach` is called a `Blade` directive
+        - `{{ dd() }}` and `@dd()` are the same, the latter is another `Blade` directive
+        - `Laravel` adds a `$loop` variable to `foreach` directives, it contains information about the loop which are accessible from within the loop
+        - `@if @endif` 
+        - `@unless @endunless`
 
     15 Blade Layouts Two Ways 
 

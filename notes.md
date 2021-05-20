@@ -180,6 +180,8 @@
         - Alt + Enter converts a closure into an arrow function 
 
     - ### Episode 13 – Collection Sorting and Caching Refresher 
+    
+        - 
 
 - ### SECITON 3 – BLADE 
 

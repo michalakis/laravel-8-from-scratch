@@ -8,11 +8,14 @@
 
     <link rel="stylesheet" href="/app.css">
 
-    <title>My Blog</title>
+    <title>My Blog - <?= $post->title ?></title>
 </head>
 <body>
 <article>
-    <?= $post; ?>
+    <h1><?= $post->title ?></h1>
+    <div>
+        <?= $post->body ?>
+    </div>
 </article>
 
 <a href="/posts">Go Back</a>

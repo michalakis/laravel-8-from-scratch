@@ -40,7 +40,6 @@ class Post
 
     public static function all()
     {
-
         return collect(File::files(resource_path("posts")))
             ->map(fn($file) => YamlFrontMatter::parseFile($file))
             ->map(fn($document) => new Post(
@@ -54,15 +53,7 @@ class Post
 
     public static function find($slug)
     {
-        $posts = Post::all();
-
-        $post = $posts->firstWhere('slug', $slug)
-        if(! file_exists($path = resource_path("posts/{$slug}.html"))) {
-            throw new ModelNotFoundException();
-        }
-
-        return cache()->remember("posts.{$slug}", 5, fn() => file_get_contents($path));
-
+        return static::all()->firstWhere('slug', $slug);
     }
 
 }

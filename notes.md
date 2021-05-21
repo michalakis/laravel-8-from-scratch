@@ -199,11 +199,23 @@
         - This means you can access the collection using foreach loops
 
     - ### Episode 20 – Make a Post Model and Migration 
+        - If you don't know what parameters a command expects, precede it with help e.g., `php artisan help make:migration`
+        - The migration name should describe what the migration does
+        - `php artisan make:migration { migration name }`
+        - `php artisan make:model { model name }`
+        - `Model::all()`
+        - `Model::count()`
+        - When we run the `find()` or `findOrFail()` methods, eloquent expects to be provided the row id, not the slug
 
     - ### Episode 21 – Updates and HTML Escaping 
+        - `{{ $foo }}` escapes the data
+        - `{!! $bar !!}` does not escape the data 
       
     - ### Episode 22 – 3 Ways to Mitigate Mass Assignment Vulnerabilities
-    
+        - You can create a new record with this syntax too Foo::create(\[ key1 => value1, key2 => value2 ... ])
+        - A model's fillable property specifies which attributes can be mass assigned i.e., when you pass all the variables in bulk, en mass
+            
+
     - ### Episode 23 – Route Model Binging
 
     - ### Episode 24 – Your first eloquent Relationship 
@@ -230,7 +242,7 @@
 
     - ### Episode 34 – A Small JavaScript Dropdown Detour 
 
-    - ### Episode 35 – How to Extract a Dropdown Blad Component 
+    - ### Episode 35 – How to Extract a Dropdown Blade Component 
 
     - ### Episode 36 – Quick Tweaks and Clean-Up 
 
@@ -239,3 +251,8 @@
     - ### Episode 37 – Search (The Messy Way) 
 
     - ### Episode 38 – Search (The Cleaner Way) 
+
+
+- ### Section 7 – Filtering
+
+    - ### Episode 39 – Advanced Eloquent Query Constraints

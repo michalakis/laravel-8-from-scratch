@@ -185,7 +185,18 @@
     - ### Episode 19 – Eloquent and the Active Record Pattern 
     
         - Classes in the `App\Models` directory are referred to as `Eloquent Models`
-        - `Eloquent` is    
+        - `Eloquent` is `Laravel's` official `Object Relational Mapper`
+        - It is `Laravel's` way of interacting with the database tables
+        - Each of the database tables can have a corresponding `Eloquent Model`
+        - The corresponding `Eloquent Model` will be the singular of the table name
+        - Each instance of the `Eloquent Model` will map to a corresponding row in the database table
+        - This is known as the `active record pattern`
+        - When creating a new eloquent model instance, we do not require to prepend the namespace, `tinker` adds it automatically
+        - `Laravel` offers a helper function for hashing passwords, `bcrypt({ password })`
+        - `Laravel` automatically creates the timestamps
+        - `$instance->pluck({ table column })` is similar to `$instance->map()`
+        - You can access eloquent model instances either with object notation, or array notation
+        - This means you can access the collection using foreach loops
 
     - ### Episode 20 – Make a Post Model and Migration 
 

@@ -212,11 +212,17 @@
         - `{!! $bar !!}` does not escape the data 
       
     - ### Episode 22 – 3 Ways to Mitigate Mass Assignment Vulnerabilities
-        - You can create a new record with this syntax too Foo::create(\[ key1 => value1, key2 => value2 ... ])
-        - A model's fillable property specifies which attributes can be mass assigned i.e., when you pass all the variables in bulk, en mass
-            
-
-    - ### Episode 23 – Route Model Binging
+        - You can create a new record with this syntax too: `Model::create([ key1 => value1, key2 => value2 ... ])`
+        - A model's `fillable` property specifies which attributes can be mass assigned i.e., when you pass all the variables in bulk, en mass
+        - This is protection against mass assignment vulnerabilities
+        - The `guarded` property is the opposite of `fillable` i.e. which columns cannot be mass assigned
+        - `alter table posts AUTO_INCREMENT={ number }` use this to remove gaps between the values of the ids
+        - If you set the `guarded` property equal to an empty array, then mass assignment protection is effectively disabled
+        - `$instance->fresh()` brings up a fresh instance from the database
+        - `$post->update([ key1 => value1, key2 => value2 ... ])`
+      
+    - ### Episode 23 – Route Model Binding
+        - `Route Model Binding`
 
     - ### Episode 24 – Your first eloquent Relationship 
 

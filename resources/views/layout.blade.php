@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/css/app.css">
 
     <title>My Blog</title>
 </head>

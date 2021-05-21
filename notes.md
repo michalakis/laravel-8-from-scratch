@@ -183,6 +183,9 @@
         - `Eloquent` maps a database table row to a model
 
     - ### Episode 19 – Eloquent and the Active Record Pattern 
+    
+        - Classes in the `App\Models` directory are referred to as `Eloquent Models`
+        - `Eloquent` is    
 
     - ### Episode 20 – Make a Post Model and Migration 
 

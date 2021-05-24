@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -14,21 +15,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::get('/posts',function(){
+Route::get('/', function(){
+    \Illuminate\Support\Facades\DB::listen(function ($query) {
+        logger($query->sql);
+    });
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => Post::all(),
     ]);
 
 });
 
-Route::get('/posts/{post}',function(Post $post) {
+Route::get('posts/{post}', function(Post $post) {
 
     return view('post',[
         'post' => $post
     ]);
 
+});
+
+Route::get('categories/{category}', function(Category $category) {
+    return view('category', [
+        'posts' => Post::where('category_id', $category->id)->get()
+    ]);
 });

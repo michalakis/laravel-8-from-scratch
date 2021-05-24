@@ -228,13 +228,24 @@
         - It will find out what the default key that represents a post is, by default it is id
         - If you want to override the default key, you can include the key with the wildcard, e.g. `{ post:slug }`
         - If you want to permanently override the default key, include the `getRouteKeyName()` method in the Model, and return the key name
-    
       
-    - ### Episode 24 – Your first eloquent Relationship 
+    - ### Episode 24 – Your first eloquent Relationship
+        - When creating a model, you can append an `-m` flag, and a migration will be generated along with the model
+        - `$table->foreignId('column name');`
+        - `return $this->belongsTo(Category::class);`
+        - When calling a relationship, when calling as a function, e.g., `$post->category()`, Laravel will return a relationship instance, but when we call it as a property, `$post->category`, Laravel will return a category instance
+        - Now when we get an instance, we also get its relationships, this introduces the `n + 1` problem
 
     - ### Episode 25 – Show All Posts Associated with a Category 
+        - When retrieving objects through a relationship, Eloquent is still running database queries behind the scene
 
     - ### Episode 26 – Clockwork, and the N+1 problem 
+        - By retrieving a relationship from within a loop, we make additional database queries 
+        - Laravel offers a `DB` facade that can listen to incoming queries, `DB::lisetn(funciton ($query){});`
+        - It also offers a `Log` Facade that can log information to the log files, `Log::info($query)`
+        - There is also a helper function to achieve the same thing `logger($query->sql)`
+        - The query instance that is fired when the database is being accessed, has an `sql` property that returns the raw sql 
+        - 
 
     - ### Episode 27 – Database Seeding Saves Time 
 

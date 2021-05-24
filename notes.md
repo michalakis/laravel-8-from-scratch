@@ -245,7 +245,12 @@
         - It also offers a `Log` Facade that can log information to the log files, `Log::info($query)`
         - There is also a helper function to achieve the same thing `logger($query->sql)`
         - The query instance that is fired when the database is being accessed, has an `sql` property that returns the raw sql 
-        - 
+        - Anything logged can be found in `\storage\log\laravel.log`
+        - When you are logging, you do not see the bindings in the logs, because laravel is using prepared statements
+        - You can access the query bindings by using `$query->bindings`, `logger($query->sql, $query->bindings)`
+        - the `n + 1` problem arises because laravel lazy loads relationships
+        - To overcome this, we retrieve the relationship from the controller and then pass it to the view, e.g., `Post::with('category')->get()`
+        - clockwork is a package that allows us to have php dev tools in the browser
 
     - ### Episode 27 – Database Seeding Saves Time 
 

@@ -21,10 +21,10 @@ Route::get('/home', function () {
 
 Route::get('/', function(){
     \Illuminate\Support\Facades\DB::listen(function ($query) {
-        logger($query->sql);
+        logger($query->sql, $query->bindings);
     });
     return view('posts', [
-        'posts' => Post::all(),
+        'posts' => Post::with('category')->get()
     ]);
 
 });

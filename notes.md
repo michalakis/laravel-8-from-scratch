@@ -219,11 +219,17 @@
         - `alter table posts AUTO_INCREMENT={ number }` use this to remove gaps between the values of the ids
         - If you set the `guarded` property equal to an empty array, then mass assignment protection is effectively disabled
         - `$instance->fresh()` brings up a fresh instance from the database
-        - `$post->update([ key1 => value1, key2 => value2 ... ])`
+        - `$instance->update([ key1 => value1, key2 => value2 ... ])`
       
     - ### Episode 23 – Route Model Binding
-        - `Route Model Binding`
-
+        - `Route Model Binding` is binding a route key to an underlying `eloquent` model
+        - The route wildcard name has to match up with the variable name passed to the callback function e.g., `Route::get('posts/{post}', function (Post $post) {});` 
+        - The variable passed to the callback is typehinted, and laravel will look for the record in that specific model
+        - It will find out what the default key that represents a post is, by default it is id
+        - If you want to override the default key, you can include the key with the wildcard, e.g. `{ post:slug }`
+        - If you want to permanently override the default key, include the `getRouteKeyName()` method in the Model, and return the key name
+    
+      
     - ### Episode 24 – Your first eloquent Relationship 
 
     - ### Episode 25 – Show All Posts Associated with a Category 
@@ -262,3 +268,5 @@
 - ### Section 7 – Filtering
 
     - ### Episode 39 – Advanced Eloquent Query Constraints
+    - ### Episode 40 - Extract a Category Dropdown Blade Component
+    - ### Episode 41 - Author Filtering

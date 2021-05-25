@@ -286,8 +286,17 @@
         - `Post::factory()->create([ 'name' => 'John Doe' ])`
 
     - ### Episode 29 – View All Posts by an Author 
+        - `Post::latest('published_at' ? )->with('category')->get()`
+        - Get the code to reflect how you speak about the site
+        - When eager loading a relationship, we can pass data as arguements to the `with()` method, or we can pass them in as an array
+        - `'username' => $this->faker->unique()->userName`
 
     - ### Episode 30 – Eager Load Relationships on an Existing Model 
+        - When loading data through a relationship, we can use the `load()` method to eager load the related data
+        - `'posts' => $category->posts->load('category', 'author')`
+        - We can set what relationships should be eager loaded automatically, by adding the relationships in a `$with` variable inside the model
+        - `protected $with = ['category' 'author'];`
+        - `Post::without('author')->first()` lets you stop eager loading of a relationship if it is not needed
 
 - ### Section 5 – Integrate the Design
 

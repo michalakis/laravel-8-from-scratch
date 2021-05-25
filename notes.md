@@ -249,12 +249,41 @@
         - When you are logging, you do not see the bindings in the logs, because laravel is using prepared statements
         - You can access the query bindings by using `$query->bindings`, `logger($query->sql, $query->bindings)`
         - the `n + 1` problem arises because laravel lazy loads relationships
-        - To overcome this, we retrieve the relationship from the controller and then pass it to the view, e.g., `Post::with('category')->get()`
+        - To overcome this, we retrieve the relationship from the controller and then pass it to the view, e.g., `Post::with('category')->get()`. This is known as `eager loading`
         - clockwork is a package that allows us to have php dev tools in the browser
 
     - ### Episode 27 – Database Seeding Saves Time 
-
+        - Seeder classes can be found in `database\seeders`
+        - Insert into a table like so, `Category::create([ 'key', 'value' ])`\
+        - Using `create` instead of `insert()` adds the timestamps automatically
+        - `php artisan db:seed` seeds the database, runs the seeder run() classes
+        - `php aritsan migrate:fresh --seed` rolls back and reruns migrations and then seeds the tables 
+        - By adding `Model::truncate()` to the seeder `run()` method, we make sure the data in those tables is cleared out before we run `php artisan db:seed`
+    
     - ### Episode 28 – Turbo Boost with Factories 
+        - `database\factories`
+        - Leverages library called `faker`
+        - Factories have a corresponding model
+        - Models use the `hasFactory` trait i.e., `use HasFactoy;`
+          - This trait is added to all new eloquent models by default when they are created 
+        - Factories let you create and persist new records into the database
+        - `Model::factory()->create()`
+        - `php artisan make:factory PostFactory`
+        - `php artisan make:model Comment -mf`
+        - Inside the factory `definition()` method, we return an array which defines the content of each column
+        - ` 'title' => $this->faker->sentence`
+        - ` 'body' => $this->faker->sentence`
+        - You can also call a factory for a different model, and it will create that factory, and use the id as the value
+        - ` 'user_id' => User::factory() `
+        - ` 'name' => $this->faker->word `
+        - ` 'slug' => $this->faker->slug `
+        - ` 'name' => $this->faker->name() `
+        - ` 'email' => $this->faker->unique()->safeEmail() `
+        - ` 'email_verified_at' => now() `
+        - ` Str::random(10) `
+        - ` 'password' => Hash::make('password') `
+        - In the factory create function, you can pass an array with values that will override the corresponding column seeded value
+        - `Post::factory()->create([ 'name' => 'John Doe' ])`
 
     - ### Episode 29 – View All Posts by an Author 
 

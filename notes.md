@@ -300,10 +300,14 @@
 
 - ### Section 5 – Integrate the Design
 
-    - ### Episode 31 – Integrate the Design 
+    - ### Episode 31 – Convert the HTML and CSS to Blade
+        - `@include('partial name')`
+        - It is convention to prepend partial names with an underscore e.g., `_partial.blade.php`, but it is not obligatory
 
     - ### Episode 32 – Blade Components and CSS Grids 
-
+        - `<x-post-featured-card :post="$posts[0]"/>` we can pass variables to the partial this way, with a colon at the beginning of the attribute name
+        - `@props(['post])` inside the partial, import the props like so
+      
     - ### Episode 33 – Convert the Blog Post Page 
 
     - ### Episode 34 – A Small JavaScript Dropdown Detour 

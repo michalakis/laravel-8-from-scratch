@@ -318,6 +318,7 @@
         - `$loop->iteration`
 
     - ### Episode 33 – Convert the Blog Post Page 
+        - Extract repetitive code to its own component
 
     - ### Episode 34 – A Small JavaScript Dropdown Detour 
 

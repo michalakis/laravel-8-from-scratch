@@ -305,9 +305,18 @@
         - It is convention to prepend partial names with an underscore e.g., `_partial.blade.php`, but it is not obligatory
 
     - ### Episode 32 – Blade Components and CSS Grids 
-        - `<x-post-featured-card :post="$posts[0]"/>` we can pass variables to the partial this way, with a colon at the beginning of the attribute name
+        - `<x-post-featured-card :post="$posts[0]" />` we can pass variables to the partial this way, with a colon at the beginning of the attribute name
         - `@props(['post])` inside the partial, import the props like so
-      
+        - In Laravel, the default timestamps are instances of a class and library called carbon, which builds upon PHP's datetime object, to make it clean and fluent to work with
+        - `{{ $post->created_at->diffForHumans() }}` is one of the methods carbon provides    
+        - `@foreach($posts->skip(1) as $post)` 
+        - The skip function lets you avoid the first post for example
+        - `$posts->count()`
+        - When you are working with blade components, you will have access to an attributes variable, this will contain all html attributes, but not the props
+        - Props are declared at the top of the file, props are passed by adding : to the prop name
+        - `@dd($loop)`
+        - `$loop->iteration`
+
     - ### Episode 33 – Convert the Blog Post Page 
 
     - ### Episode 34 – A Small JavaScript Dropdown Detour 

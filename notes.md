@@ -321,6 +321,13 @@
         - Extract repetitive code to its own component
 
     - ### Episode 34 – A Small JavaScript Dropdown Detour 
+        - AlpineJS borrows its syntax from vue, and by extension Angular
+        - Add attribute `x-data` to an element to create an alpine component
+        - The attribute is given an object which is the single source of truth for the component  
+        - `<div x-data="{ show: false }"></div>` 
+        - This says we do not show the component by default
+        - We next bind the display of an element to the boolean single source of truth 
+        - `x-show="show"`
 
     - ### Episode 35 – How to Extract a Dropdown Blade Component 
 

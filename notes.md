@@ -328,6 +328,17 @@
         - This says we do not show the component by default
         - We next bind the display of an element to the boolean single source of truth 
         - `x-show="show"`
+        - We can add click events to elements with alpine
+        - `<button @click="alert('hi')">Categories</button>`
+        - We can use the click event to change the single source of truth 
+        - `<button @click="show = true">Categories</button>`
+        - We can set the variable to switch between true and false on every click
+        - `<button @click="show = ! show">Categories</button>`
+        - Add `display: none` to get around the jumping of elements issue on load, alpine will remove the property when the page loads
+        - `<div x-data="{ show: false }" @click.away="show = false"></div>
+        - `{{ ucwords($category->name) }}` capitalizes first letter of every word
+        - `{{ isset($variable) }}`
+        - `$currentCategory->is($category)` compares ids to determine equivalence 
 
     - ### Episode 35 – How to Extract a Dropdown Blade Component 
 

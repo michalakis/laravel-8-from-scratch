@@ -1,6 +1,4 @@
-<h1 style="color:#EF3B2D; text-align: center; margin-bottom: 50px;">    
-    LARAVEL <span style="color:white;">8</span> FROM SCRATCH
-</h1>
+## Laravel 8 From Scratch
 
 - ### Section 1 – Prerequisites and Setup
 
@@ -341,7 +339,7 @@
         - `$currentCategory->is($category)` compares ids to determine equivalence 
 
     - ### Episode 35 – How to Extract a Dropdown Blade Component 
-        - When passing attributes to a component, you can use the `merge()` function or you can pass in an object to the attributes variable
+        - When passing attributes to a component, you can use the `merge()` function, or you can pass in an object to the attributes variable
         - `{{ $attributes([ 'class' => 'transform -rotate-90 absolute']) }}`  
         - `request()->is('uri')`
         - You can also use wildcards
@@ -362,8 +360,24 @@
 - ### Section 6 – Search
       
     - ### Episode 37 – Search (The Messy Way) 
+        - A form field that is submitted empty returns `null`
+        - `Post::latest()` builds the query string, but does not execute it since `get()` is missing 
+        - `select * from posts where title like '%Doloribus%'`
+        - It seems like the search term is not case-sensitive
+        - `$posts = Post::latest()->with('category', 'author');`
+        - `if (request('search')) { 
+                $posts
+                    ->where('title', 'like', '%' . request('search')
+                    ->orWhere('body', 'like', '%' . request('search') . '%'); . '%'); 
+          }`
+        - `'posts' => $posts->get()`
+        - `value="{{ request('search') }}"`
 
     - ### Episode 38 – Search (The Cleaner Way) 
+        - `php artisan make:controller PostController`
+        - There is no convention about whether the controller name should be singular or plural, the documentation keeps it singular
+        - `Route::get('/', [PostController::class, 'index'])->name('home');`
+        - The second parametere is the controller function to be called
 
 
 - ### Section 7 – Filtering

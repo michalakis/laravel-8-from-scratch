@@ -29,7 +29,7 @@ Route::get('/', function(){
         'categories' => Category::all()
     ]);
 
-});
+})->name('home');
 
 Route::get('posts/{post}', function(Post $post) {
 
@@ -45,7 +45,7 @@ Route::get('categories/{category}', function(Category $category) {
         'currentCategory' => $category,
         'categories' => Category::all()
     ]);
-});
+})->name('category');
 
 Route::get('authors/{author:username}', function(User $author) {
     return view('posts', [

@@ -341,8 +341,21 @@
         - `$currentCategory->is($category)` compares ids to determine equivalence 
 
     - ### Episode 35 – How to Extract a Dropdown Blade Component 
+        - When passing attributes to a component, you can use the `merge()` function or you can pass in an object to the attributes variable
+        - `{{ $attributes([ 'class' => 'transform -rotate-90 absolute']) }}`  
+        - `request()->is('uri')`
+        - You can also use wildcards
+        - `request()->is('*' . $category->slug)`
+        - `{$varialbe}` string interpolation
+        - A named route is a name you give to a particular route, it's an identifier
+        - You can reference the uri without writing the uri out, like a variable 
+        - `request()->routeIs('home')`
+        - You can check the current uri if it matches a named route
+        - Would the particular route respond to the current uri
+        - Q: Do component props always require a variable to be passed in?
 
-    - ### Episode 36 – Quick Tweaks and Clean-Up 
+    - ### Episode 36 – Quick Tweaks and Clean-Up
+        - 
 
 - ### Section 6 – Search
       
@@ -356,3 +369,9 @@
     - ### Episode 39 – Advanced Eloquent Query Constraints
     - ### Episode 40 - Extract a Category Dropdown Blade Component
     - ### Episode 41 - Author Filtering
+    - ### Episode 42 - Merge Category and Search Queries
+    - ### Episode 43 - Fix a Confusing Eloquent Query Bug
+    
+- ### Section 8 - Pagination
+
+    - ### Episode 44 - Laughably Simple Pagination

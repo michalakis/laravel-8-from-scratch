@@ -355,7 +355,9 @@
         - Q: Do component props always require a variable to be passed in?
 
     - ### Episode 36 – Quick Tweaks and Clean-Up
-        - 
+        - `'excerpt' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>'`
+        - `space-y-4` is a tailwind class that adds spacing to all children except the first one
+        - With utility frameworks like tailwind, you can pull in a plugin that would handle specific functions, e.g., give a margin to all paragraphs except first
 
 - ### Section 6 – Search
       

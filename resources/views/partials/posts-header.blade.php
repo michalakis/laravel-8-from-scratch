@@ -56,4 +56,6 @@
             </form>
         </div>
     </div>
+
+    {{ $posts->count() }}
 </header>

@@ -377,12 +377,48 @@
         - `php artisan make:controller PostController`
         - There is no convention about whether the controller name should be singular or plural, the documentation keeps it singular
         - `Route::get('/', [PostController::class, 'index'])->name('home');`
-        - The second parametere is the controller function to be called
-
-
+        - If you route to a controller you provide the full path to the controller, and as the second item to the array, the controller action that you want to trigger
+        - You can create your own `query scopes` directly on the `eloquent` model
+        - You pass in the `query builder` to the `query scope`
+        - `public function scopeFilter($query) // Post::newQuery()->filter()
+          {
+              if (request('search')) {
+                  $query
+                  ->where('title', 'like', '%' . request('search') . '%')
+                  ->orWhere('body', 'like', '%' . request('search') . '%');
+              }
+          }`
+        - `Post::latest()->filter()->get()`
+        - The first argument is passed in by laravel automatically, that is the query builder
+        - Reaching into the `request` is not the responsibility of the eloquent model
+        - `??` is the `null safe operator`, it handles situations where the value does not exist
+          - In `PHP 8` the `null safe operator` also checks if the variable `isset`, and if it is it returns the value
+        - `request('search)` returns the string contained inside 
+        - `reqeust(['search'])` returns an array with search as the key, and the string as the value
+        - `request()->only('search)` does the same
+        - If in the future you have more filters, you can pass them in as well
+        - `PHPStorm` `ctrl + n` to search for classes, `ctrl + F12` to see list of inherited members 
+        - The `when()` function on the `eloquent` `builder` class is a chainable, object-oriented way to add conditionals
+        - `$query->when($filters['search'] ?? false, fn($query, $search) => $query
+                ->where('title', 'like', '%' . $search . '%')
+                ->orWhere('body', 'like', '%' . $search . '%')
+            );`
+          
 - ### Section 7 – Filtering
 
     - ### Episode 39 – Advanced Eloquent Query Constraints
+      - `SELECT
+                *
+        FROM
+            posts
+        WHERE
+            EXISTS (
+                SELECT
+                *
+                FROM
+                    categories
+                WHERE categories.id = posts.category_id AND categories.slug = 'commodi-ea-facere-nulla-est')`
+      - `EXISTS` accepts a boolean, and returns the row only if the condition evaluates to true
     - ### Episode 40 - Extract a Category Dropdown Blade Component
     - ### Episode 41 - Author Filtering
     - ### Episode 42 - Merge Category and Search Queries
@@ -391,3 +427,9 @@
 - ### Section 8 - Pagination
 
     - ### Episode 44 - Laughably Simple Pagination
+
+- ### Section 9 - Forms and Authentication
+
+    - ### Episode 45 - Build a Register User Page
+    - ### Episode 46 - Automatic Password Hashing With Mutators
+    - ### Episode 47 -  Failed Validation and Old Input Data

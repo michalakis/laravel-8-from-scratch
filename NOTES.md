@@ -407,18 +407,36 @@
 - ### Section 7 – Filtering
 
     - ### Episode 39 – Advanced Eloquent Query Constraints
-      - `SELECT
+        - `SELECT
                 *
-        FROM
-            posts
-        WHERE
-            EXISTS (
-                SELECT
-                *
-                FROM
-                    categories
-                WHERE categories.id = posts.category_id AND categories.slug = 'commodi-ea-facere-nulla-est')`
-      - `EXISTS` accepts a boolean, and returns the row only if the condition evaluates to true
+            FROM
+                posts
+            WHERE
+                EXISTS (
+                    SELECT
+                    *
+                    FROM
+                        categories
+                    WHERE categories.id = posts.category_id AND categories.slug = 'commodi-ea-facere-nulla-est')`
+        - `EXISTS` accepts a boolean, and returns the row only if the condition evaluates to true
+        - `$query->when($filters['category'] ?? false, fn($query, $category) =>
+            $query
+                ->whereExists(fn($query) =>
+                    $query->from('categories')
+                        ->whereColumn('categories.id', 'posts.category_id')
+                        ->where('categories.slug',$category))
+        );`
+        - Try to speak the `sql` out loud to help it make sense 
+        - `whereHas` and `exists` produce the same sql (exists) 
+        - `$query->when($filters['category'] ?? false, fn($query, $category) =>
+              $query->whereHas('category', fn ($query) =>
+                $query->where('slug', $category)
+              )
+          );`
+        - We combine the filters 
+        
+        
+
     - ### Episode 40 - Extract a Category Dropdown Blade Component
     - ### Episode 41 - Author Filtering
     - ### Episode 42 - Merge Category and Search Queries
